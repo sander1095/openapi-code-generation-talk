@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "prism": "prism mock conference_openapi.yml"
+  },
+  "dependencies": {
+    "@stoplight/prism-cli": "^5.5.2"
+  }
+}

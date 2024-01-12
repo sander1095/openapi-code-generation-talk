@@ -7,6 +7,9 @@ info:
     url: https://stenbrinke.nl
     email: s.tenbrinke2@gmail.com
   version: 1.0.0
+servers:
+  - url: "http://localhost:4010"
+    description: Local development server
 paths:
   /talks:
     get:
@@ -120,3 +123,22 @@ components:
           type: string
         lastname:
           type: string
+  securitySchemes:
+    azureAD:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/TENANT_ID_HERE/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/TENANT_ID_HERE/oauth2/v2.0/token
+          scopes:
+            api.read: Read access to the API
+            api.write: Write access to the API
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+security:
+  - azureAD:
+      - api.read
+      - api.write
+  - apiKeyAuth: []
