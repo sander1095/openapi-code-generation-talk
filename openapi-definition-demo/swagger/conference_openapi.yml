@@ -44,6 +44,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Talk"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /talks/{id}:
     get:
       tags:
@@ -65,6 +71,10 @@ paths:
                 $ref: "#/components/schemas/Talk"
         "404":
           description: Talk not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /speakers:
     get:
       tags:
@@ -122,6 +132,19 @@ components:
         firstname:
           type: string
         lastname:
+          type: string
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
           type: string
   securitySchemes:
     azureAD:

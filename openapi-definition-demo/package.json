@@ -1,8 +1,13 @@
 {
   "scripts": {
-    "prism": "prism mock conference_openapi.yml"
+    "prism": "prism mock swagger/conference_openapi.yml",
+    "server-swagger": "http-server swagger -p 8080",
+    "server-redocly": "http-server redocly -p 8090",
+    "start": "concurrently \"npm run prism\" \"npm run server-swagger\" \"npm run server-redocly\""
   },
   "dependencies": {
-    "@stoplight/prism-cli": "^5.5.2"
+    "@stoplight/prism-cli": "^5.5.2",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1"
   }
 }
