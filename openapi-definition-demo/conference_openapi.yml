@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: Conference API
+  description: API for managing conference talks
+  contact:
+    name: Sander ten Brinke
+    url: https://stenbrinke.nl
+    email: s.tenbrinke2@gmail.com
+  version: 1.0.0
+paths:
+  /talks:
+    get:
+      tags:
+        - "Talks"
+      summary: Get a list of talks
+      operationId: Talks_GetTalks
+      responses:
+        "200":
+          description: A list of talks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Talk"
+    post:
+      tags:
+        - "Talks"
+      summary: Create a new talk
+      operationId: Talks_CreateTalk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Talk"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Talk"
+  /talks/{id}:
+    get:
+      tags:
+        - "Talks"
+      summary: Get a specific talk
+      operationId: Talks_GetTalk
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A single talk
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Talk"
+        "404":
+          description: Talk not found
+  /speakers:
+    get:
+      tags:
+        - "Speakers"
+      summary: Get a list of speakers
+      operationId: Speakers_GetSpeakers
+      responses:
+        "200":
+          description: A list of speakers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Speaker"
+  /speakers/{id}:
+    get:
+      tags:
+        - "Speakers"
+      summary: Get a specific speaker
+      operationId: Speakers_getSpeaker
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A single speaker
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Speaker"
+        "404":
+          description: Speaker not found
+
+components:
+  schemas:
+    Talk:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        speaker:
+          $ref: "#/components/schemas/Speaker"
+        time:
+          type: string
+          format: date-time
+    Speaker:
+      type: object
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
