@@ -42,6 +42,11 @@ namespace ConferenceServerControllers.Controllers
             return Ok(talk);
         }
 
+        /// <summary>
+        /// Creates a talk
+        /// </summary>
+        /// <param name="requestBody">The requestbody for the talk</param>
+        /// <returns>The created talk</returns>
         [HttpPost]
         [ProducesResponseType<Talk>(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

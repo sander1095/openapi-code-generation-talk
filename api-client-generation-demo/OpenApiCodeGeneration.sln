@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{4A549FCD-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceServerControllers", "ConferenceServerControllers\ConferenceServerControllers.csproj", "{2231DAF5-5E3C-498D-BBF9-49DA456189D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceServerMinimalAPI", "ConferenceServerMinimalAPI\ConferenceServerMinimalAPI.csproj", "{2660B886-6F77-47E0-8052-D920FE6D6BAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2231DAF5-5E3C-498D-BBF9-49DA456189D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2231DAF5-5E3C-498D-BBF9-49DA456189D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2231DAF5-5E3C-498D-BBF9-49DA456189D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2660B886-6F77-47E0-8052-D920FE6D6BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2660B886-6F77-47E0-8052-D920FE6D6BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2660B886-6F77-47E0-8052-D920FE6D6BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2660B886-6F77-47E0-8052-D920FE6D6BAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
