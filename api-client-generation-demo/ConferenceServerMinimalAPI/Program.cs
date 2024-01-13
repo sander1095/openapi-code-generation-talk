@@ -53,9 +53,8 @@ static IResult GetTalk(int id)
 
 static IResult CreateTalk(CreateTalk requestBody)
 {
-    // TODO: Validate this better..
     var validationResults = new List<ValidationResult>();
-    if (!Validator.TryValidateObject(requestBody, new ValidationContext(requestBody), validationResults))
+    if (!Validator.TryValidateObject(requestBody, new ValidationContext(requestBody), validationResults, true))
     {
         return TypedResults.ValidationProblem(new Dictionary<string, string[]> { { "Title", ["Title is too long"] } });
     }
