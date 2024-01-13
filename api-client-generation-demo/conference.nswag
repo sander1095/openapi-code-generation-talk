@@ -94,7 +94,7 @@
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "../ConferenceApp/Clients/NSwag/GeneratedApiClient.cs",
+      "output": "ConferenceApp/Clients/NSwag/GeneratedApiClient.cs",
       "newLineBehavior": "Auto"
     }
   }
