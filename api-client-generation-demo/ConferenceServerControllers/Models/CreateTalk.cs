@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ConferenceServerControllers.Controllers.Models
+namespace ConferenceServerControllers.Models
 {
     public class CreateTalk
     {

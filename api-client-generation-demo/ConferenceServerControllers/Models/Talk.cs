@@ -1,4 +1,4 @@
-﻿namespace ConferenceServerControllers.Controllers.Models
+﻿namespace ConferenceServerControllers.Models
 {
     public class Talk
     {

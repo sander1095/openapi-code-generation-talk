@@ -10,6 +10,9 @@ dotnet tool restore
 Also install the kiota extension in vscode
 
 ## Demo content
+- Demo the Servers (both Minimal API and controllers, run Controllers with HTTPs!)
+  - Talk about ProducesResponseType, OpenAPIAnalyzers, Visual Studio API client generation
+
 - Demo NSwagStudio with the openapi_conference.yml
 - Demo correct C# (minimal API + controllers + the analyzers)
 - Demo the client,at least in code.

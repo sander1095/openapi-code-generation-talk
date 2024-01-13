@@ -1,4 +1,4 @@
-﻿using ConferenceServerControllers.Controllers.Models;
+﻿using ConferenceServerControllers.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConferenceServerControllers.Controllers
