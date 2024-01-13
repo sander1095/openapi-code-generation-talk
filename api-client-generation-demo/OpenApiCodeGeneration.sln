@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9DD4
 	ProjectSection(SolutionItems) = preProject
 		generate-kiota-client.ps1 = generate-kiota-client.ps1
 		generate-nswag-client.ps1 = generate-nswag-client.ps1
+		kiota-show-client.ps1 = kiota-show-client.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{4A549FCD-AF04-4E46-B97C-D85FA69BCC00}"

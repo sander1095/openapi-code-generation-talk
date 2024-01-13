@@ -1,0 +1,1 @@
+dotnet kiota show --openapi "https://localhost:7135/swagger/v1/swagger.json"
