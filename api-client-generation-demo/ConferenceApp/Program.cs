@@ -11,7 +11,7 @@ Console.WriteLine("Press any key to start the demo app");
 _ = Console.ReadKey();
 
 Console.WriteLine("------NSWAG------");
-ITalksClient nswagTalksClient = new TalksClient(httpClient);
+INSwagTalksClient nswagTalksClient = new NSwagTalksClient(httpClient);
 
 var nswagTalks = await nswagTalksClient.GetTalksAsync();
 Console.WriteLine($"NSwag API client returned {nswagTalks.Count} talks");

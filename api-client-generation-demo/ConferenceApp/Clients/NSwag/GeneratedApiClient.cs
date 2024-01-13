@@ -22,7 +22,7 @@ namespace ConferenceApp.Clients.NSwag
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial interface ITalksClient
+    public partial interface INSwagTalksClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Talk>> GetTalksAsync();
@@ -58,12 +58,12 @@ namespace ConferenceApp.Clients.NSwag
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class TalksClient : ITalksClient
+    public partial class NSwagTalksClient : INSwagTalksClient
     {
         private System.Net.Http.HttpClient _httpClient;
         private static System.Lazy<System.Text.Json.JsonSerializerOptions> _settings = new System.Lazy<System.Text.Json.JsonSerializerOptions>(CreateSerializerSettings, true);
 
-        public TalksClient(System.Net.Http.HttpClient httpClient)
+        public NSwagTalksClient(System.Net.Http.HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
