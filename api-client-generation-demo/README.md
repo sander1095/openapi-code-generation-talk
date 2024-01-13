@@ -4,11 +4,7 @@ This demo shows off Kiota and NSwag
 ## Setup
 ```
 winget install RicoSuter.NSwagStudio
-cd kiota
-dotnet tool install
-cd ../
-cd nswag
-dotnet tool install
+dotnet tool restore
 ```
 
 Also install the kiota extension in vscode

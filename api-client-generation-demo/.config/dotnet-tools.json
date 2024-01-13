@@ -4,9 +4,11 @@
   "tools": {
     "microsoft.openapi.kiota": {
       "version": "1.10.1",
-      "commands": [
-        "kiota"
-      ]
+      "commands": ["kiota"]
+    },
+    "nswag.consolecore": {
+      "version": "14.0.1",
+      "commands": ["nswag"]
     }
   }
 }

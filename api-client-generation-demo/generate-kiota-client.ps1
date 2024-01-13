@@ -1,0 +1,1 @@
+dotnet kiota generate -l csharp --openapi "kiota\conference_openapi.yaml" -o .\kiota\KiotaApiClient
