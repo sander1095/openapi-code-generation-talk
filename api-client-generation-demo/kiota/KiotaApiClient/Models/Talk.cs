@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace Kiota.KiotaApiClient.Models {
     public class Talk : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -13,10 +13,10 @@ namespace ApiSdk.Models {
         /// <summary>The speaker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ApiSdk.Models.Speaker? Speaker { get; set; }
+        public Kiota.KiotaApiClient.Models.Speaker? Speaker { get; set; }
 #nullable restore
 #else
-        public ApiSdk.Models.Speaker Speaker { get; set; }
+        public Kiota.KiotaApiClient.Models.Speaker Speaker { get; set; }
 #endif
         /// <summary>The time property</summary>
         public DateTimeOffset? Time { get; set; }
@@ -48,7 +48,7 @@ namespace ApiSdk.Models {
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"id", n => { Id = n.GetIntValue(); } },
-                {"speaker", n => { Speaker = n.GetObjectValue<ApiSdk.Models.Speaker>(ApiSdk.Models.Speaker.CreateFromDiscriminatorValue); } },
+                {"speaker", n => { Speaker = n.GetObjectValue<Kiota.KiotaApiClient.Models.Speaker>(Kiota.KiotaApiClient.Models.Speaker.CreateFromDiscriminatorValue); } },
                 {"time", n => { Time = n.GetDateTimeOffsetValue(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
             };
@@ -60,7 +60,7 @@ namespace ApiSdk.Models {
         public virtual void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("id", Id);
-            writer.WriteObjectValue<ApiSdk.Models.Speaker>("speaker", Speaker);
+            writer.WriteObjectValue<Kiota.KiotaApiClient.Models.Speaker>("speaker", Speaker);
             writer.WriteDateTimeOffsetValue("time", Time);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
