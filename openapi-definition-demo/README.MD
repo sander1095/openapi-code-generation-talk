@@ -29,3 +29,5 @@ Then demonstrate Swagger:
 - , including (not working) microsoft login.
 
 Then demonstrate redocly with their 3 lane view.
+
+Then demonstrate Postman by importing a collection (URL or content) and it generating an entire collection for you
