@@ -12,7 +12,7 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
 
     <!-- Useful for the prebuild/ folder -->
-    <PublishSingleFile>true</PublishSingleFile>
+    <PublishSingleFile>false</PublishSingleFile> <!-- false because of missing XML comments-->
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
 
