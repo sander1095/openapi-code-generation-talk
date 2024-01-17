@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9DD4
 	ProjectSection(SolutionItems) = preProject
 		generate-kiota-client.ps1 = generate-kiota-client.ps1
 		generate-nswag-client.ps1 = generate-nswag-client.ps1
+		generate-prebuild-projects.ps1 = generate-prebuild-projects.ps1
 		kiota-show-client.ps1 = kiota-show-client.ps1
 	EndProjectSection
 EndProject
@@ -15,11 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{4A549FCD-A
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceServerControllers", "ConferenceServerControllers\ConferenceServerControllers.csproj", "{2231DAF5-5E3C-498D-BBF9-49DA456189D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConferenceServerControllers", "ConferenceServerControllers\ConferenceServerControllers.csproj", "{2231DAF5-5E3C-498D-BBF9-49DA456189D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceServerMinimalAPI", "ConferenceServerMinimalAPI\ConferenceServerMinimalAPI.csproj", "{2660B886-6F77-47E0-8052-D920FE6D6BAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConferenceServerMinimalAPI", "ConferenceServerMinimalAPI\ConferenceServerMinimalAPI.csproj", "{2660B886-6F77-47E0-8052-D920FE6D6BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceApp", "ConferenceApp\ConferenceApp.csproj", "{F8C23247-22C7-4B95-BCFF-A56B2332DDF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConferenceApp", "ConferenceApp\ConferenceApp.csproj", "{F8C23247-22C7-4B95-BCFF-A56B2332DDF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
