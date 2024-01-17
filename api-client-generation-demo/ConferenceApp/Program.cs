@@ -7,7 +7,7 @@ using Microsoft.Kiota.Http.HttpClientLibrary;
 // Set up shared code between Kiota and NSwag
 var httpClient = new HttpClient
 {
-    BaseAddress = new Uri("https://localhost:7135")
+    BaseAddress = new Uri("https://localhost:7135") // Talk with the Controllers API
 };
 
 Console.WriteLine("Press any key to start the demo app");
