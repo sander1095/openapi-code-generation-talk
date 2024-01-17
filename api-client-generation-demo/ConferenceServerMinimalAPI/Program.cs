@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-8.0
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("https://localhost:7202");
 
 builder.Services.AddOpenApiDocument(x => x.Title = "Conference API");
 builder.Services.AddEndpointsApiExplorer();
