@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConferenceServerControllers</name>
+    </assembly>
+    <members>
+        <member name="M:ConferenceServerControllers.Controllers.TalksController.CreateTalk(ConferenceServerControllers.Models.CreateTalk)">
+            <summary>
+            Creates a talk
+            </summary>
+            <param name="requestBody">The requestbody for the talk</param>
+            <returns>The created talk</returns>
+        </member>
+    </members>
+</doc>
