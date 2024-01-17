@@ -11,8 +11,8 @@ Also install the kiota extension in vscode
 
 - See the `Prebuild` folder for win64 published apps.
 - Run `start-prebuild-projects.ps1` in the `Scripts` folder to start all the projects.
-- Open the Controllers project Swagger page: https://localhost:7135
-- Open the Controllers project Swagger page: https://localhost:7202
+- Open the Controllers project Swagger page: https://localhost:7135/swagger
+- Open the Controllers project Swagger page: https://localhost:7202/swagger
 
 ## Demo content
 
