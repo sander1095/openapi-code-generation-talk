@@ -10,7 +10,8 @@ dotnet tool restore
 Also install the kiota extension in vscode
 
 ## Demo content
-**TODO: CREATE SCRIPT TO START UP EVERYTHING**
+
+See the `Prebuild` folder for win64 published apps.
 
 ### Servers
 - Before demoing the API client generation, let's take a look at what kind of API client we'll be generating
