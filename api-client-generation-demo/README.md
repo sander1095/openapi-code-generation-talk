@@ -9,11 +9,12 @@ dotnet tool restore
 
 Also install the kiota extension in vscode
 
+- See the `Prebuild` folder for win64 published apps.
+- Run `start-prebuild-projects.ps1` in the `Scripts` folder to start all the projects.
+- Open the Controllers project Swagger page: https://localhost:7135
+- Open the Controllers project Swagger page: https://localhost:7202
+
 ## Demo content
-
-See the `Prebuild` folder for win64 published apps.
-
-Run `start-prebuild-projects.ps1` in the `Scripts` folder to start all the projects.
 
 ### Servers
 - Before demoing the API client generation, let's take a look at what kind of API client we'll be generating
