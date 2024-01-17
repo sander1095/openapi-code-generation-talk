@@ -13,6 +13,8 @@ Also install the kiota extension in vscode
 
 See the `Prebuild` folder for win64 published apps.
 
+Run `start-prebuild-projects.ps1` in the `Scripts` folder to start all the projects.
+
 ### Servers
 - Before demoing the API client generation, let's take a look at what kind of API client we'll be generating
 - Demo the Servers (both Minimal API and controllers, run Controllers with HTTPs!)
