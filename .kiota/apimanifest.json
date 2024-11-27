@@ -1,0 +1,19 @@
+{
+  "applicationName": "application",
+  "apiDependencies": {
+    "KiotaConferenceClient": {
+      "apiDescriptionUrl": "https://localhost:7135/swagger/v1/swagger.json",
+      "apiDeploymentBaseUrl": "https://localhost:7135/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "/migration-placeholder"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "2F9337C342226EA1320588A1D00C8B866942DDB499CBD0E7626BB778AFD77621",
+        "x-ms-kiota-version": "1.21.0-preview.202411210001"
+      }
+    }
+  }
+}
