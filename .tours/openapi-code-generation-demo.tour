@@ -1,0 +1,64 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "OpenAPI Code Generation Demo",
+  "description": "Demo flow: OpenAPI basics → Server APIs → NSwag client generation → Kiota client generation → Client usage",
+  "steps": [
+    {
+      "file": "conference_openapi.yml",
+      "line": 10,
+      "title": "1. OpenAPI Definition",
+      "description": "**Demo the OpenAPI spec** - This defines our Conference API with:\n- `/talks` endpoints (GET all, POST new, GET by id)\n- Request/response schemas\n- Status codes\n\nThis serves as the contract for both servers and generated clients."
+    },
+    {
+      "directory": "openapi-definition-demo",
+      "title": "2. OpenAPI Tooling (Swagger/Redocly)",
+      "description": "**Demo Swagger UI and Redocly**\n\nShow:\n- Example request/response bodies\n- Multiple status codes\n- Schema definitions\n- Try it out (will get 401 - security not configured)\n- Redocly's 3-pane view\n\nMention: Postman can import this spec to generate a collection."
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceServerControllers/Controllers/TalksController.cs",
+      "line": 21,
+      "title": "3. Controllers API - ProducesResponseType",
+      "description": "**Demo the Controllers-based API**\n\nKey points:\n- `[ProducesResponseType]` documents the OpenAPI spec\n- `IncludeOpenAPIAnalyzers` warns about undocumented status codes (try commenting line 29!)\n- XML comments enrich documentation\n\n🌐 Run with HTTPS: https://localhost:7135/swagger"
+    },
+    {
+      "file": "api-client-generation-demo/conference.nswag",
+      "line": 1,
+      "title": "5. NSwag - Configuration File",
+      "description": "**Demo NSwag client generation**\n\nShow:\n- This `.nswag` file (can edit in NSwagStudio GUI)\n- Point to Swagger URL: https://localhost:7135/swagger/v1/swagger.json\n- Configure namespace, class name, output path"
+    },
+    {
+      "file": "api-client-generation-demo/Scripts/generate-nswag-client.ps1",
+      "line": 1,
+      "title": "6. NSwag - Generate via CLI",
+      "description": "**Run NSwag generation**\n\n```powershell\n.\\Scripts\\generate-nswag-client.ps1\n```\n\nAlternatives:\n- NSwagStudio (GUI)\n- MSBuild integration\n- Direct `dotnet nswag` commands"
+    },
+    {
+      "directory": "api-client-generation-demo/ConferenceApp/Clients/NSwag",
+      "title": "7. NSwag - Generated Client",
+      "description": "**Show the generated NSwag client**\n\n- Single file with all client code\n- Strongly-typed methods: `GetTalksAsync()`, `GetTalkAsync(id)`, `CreateTalkAsync()`\n- Models generated from OpenAPI schemas"
+    },
+    {
+      "file": "api-client-generation-demo/Scripts/generate-kiota-client.ps1",
+      "line": 1,
+      "title": "8. Kiota - CLI Generation",
+      "description": "**Demo Kiota CLI**\n\nShow the command:\n```powershell\n.\\Scripts\\generate-kiota-client.ps1\n```\n\nOr use `kiota show` for a tree view of the API.\n\nAlternative: **Kiota VS Code extension** (GitHub integration)"
+    },
+    {
+      "directory": "api-client-generation-demo/ConferenceApp/Clients/Kiota",
+      "title": "9. Kiota - Generated Client",
+      "description": "**Show the generated Kiota client**\n\n- Modular structure (separate files for models, builders)\n- Fluent API following URL structure\n- `kiota-lock.json` tracks generation config"
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceApp/Program.cs",
+      "line": 16,
+      "title": "10. NSwag Client Usage",
+      "description": "**Demo using NSwag client**\n\n```csharp\nvar client = new NSwagTalksClient(httpClient);\nvar talks = await client.GetTalksAsync();\nvar talk = await client.GetTalkAsync(1);\n```\n\nTraditional, straightforward API style."
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceApp/Program.cs",
+      "line": 31,
+      "title": "11. Kiota Client Usage",
+      "description": "**Demo using Kiota client**\n\n```csharp\nvar client = new KiotaConferenceClient(adapter);\nvar talks = await client.Api.Talks.GetAsync();\nvar talk = await client.Api.Talks[1].GetAsync();\n```\n\nFluent builder pattern with indexer syntax for IDs."
+    }
+  ]
+}
