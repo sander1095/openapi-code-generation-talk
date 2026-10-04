@@ -2,7 +2,7 @@
   "applicationName": "application",
   "apiDependencies": {
     "KiotaConferenceClient": {
-      "apiDescriptionUrl": "https://localhost:7135/swagger/v1/swagger.json",
+      "apiDescriptionUrl": "https://localhost:7135/openapi/v1.json",
       "apiDeploymentBaseUrl": "https://localhost:7135/",
       "requests": [
         {

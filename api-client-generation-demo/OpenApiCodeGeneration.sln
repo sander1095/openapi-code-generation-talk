@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9DD4A5D8-E782-4E19-AAB7-91D9B0B7F088}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\generate-kiota-client.ps1 = Scripts\generate-kiota-client.ps1
+		Scripts\generate-js-clients.ps1 = Scripts\generate-js-clients.ps1
 		Scripts\generate-nswag-client.ps1 = Scripts\generate-nswag-client.ps1
 		Scripts\generate-prebuild-projects.ps1 = Scripts\generate-prebuild-projects.ps1
 		Scripts\kiota-show-client.ps1 = Scripts\kiota-show-client.ps1

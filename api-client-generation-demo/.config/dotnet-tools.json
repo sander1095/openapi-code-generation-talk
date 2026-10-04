@@ -3,14 +3,14 @@
   "isRoot": true,
   "tools": {
     "nswag.consolecore": {
-      "version": "14.0.1",
+      "version": "14.7.1",
       "commands": [
         "nswag"
       ],
       "rollForward": false
     },
     "microsoft.openapi.kiota": {
-      "version": "1.20.0",
+      "version": "1.35.0",
       "commands": [
         "kiota"
       ],

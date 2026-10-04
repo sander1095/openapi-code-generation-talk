@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConferenceServerControllers.Controllers
 {
-    // https://learn.microsoft.com/en-us/aspnet/core/web-api/advanced/analyzers?view=aspnetcore-8.0
+    // https://learn.microsoft.com/en-us/aspnet/core/web-api/advanced/analyzers?view=aspnetcore-10.0
     [ApiController]
     [Route("api/talks")]
+    [Produces("application/json")]
+    [Consumes("application/json")]
     public class TalksController : ControllerBase
     {
         private static readonly List<Talk> _talks = [
@@ -19,6 +21,7 @@ namespace ConferenceServerControllers.Controllers
             ];
 
         [HttpGet]
+        [EndpointName("Talks_GetTalks")]
         [ProducesResponseType<IReadOnlyCollection<Talk>>(StatusCodes.Status200OK)]
         public ActionResult<IReadOnlyCollection<Talk>> GetTalks()
         {
@@ -26,6 +29,7 @@ namespace ConferenceServerControllers.Controllers
         }
 
         [HttpGet("{id:int:min(1)}")]
+        [EndpointName("Talks_GetTalk")]
         [ProducesResponseType<Talk>(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Talk> GetTalk(int id)
@@ -48,6 +52,7 @@ namespace ConferenceServerControllers.Controllers
         /// <param name="requestBody">The requestbody for the talk</param>
         /// <returns>The created talk</returns>
         [HttpPost]
+        [EndpointName("Talks_CreateTalk")]
         [ProducesResponseType<Talk>(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]

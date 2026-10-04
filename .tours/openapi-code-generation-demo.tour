@@ -1,7 +1,7 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
   "title": "OpenAPI Code Generation Demo",
-  "description": "Demo flow: OpenAPI basics → Server APIs → NSwag client generation → Kiota client generation → Client usage",
+  "description": "Demo flow: OpenAPI basics → Server APIs → NSwag client generation → Kiota client generation → Client usage → JavaScript clients",
   "steps": [
     {
       "file": "conference_openapi.yml",
@@ -16,15 +16,21 @@
     },
     {
       "file": "api-client-generation-demo/ConferenceServerControllers/Controllers/TalksController.cs",
-      "line": 21,
+      "line": 23,
       "title": "3. Controllers API - ProducesResponseType",
-      "description": "**Demo the Controllers-based API**\n\nKey points:\n- `[ProducesResponseType]` documents the OpenAPI spec\n- `IncludeOpenAPIAnalyzers` warns about undocumented status codes (try commenting line 29!)\n- XML comments enrich documentation\n\n🌐 Run with HTTPS: https://localhost:7135/swagger"
+      "description": "**Demo the Controllers-based API**\n\nKey points:\n- `[ProducesResponseType]` documents the OpenAPI spec\n- `IncludeOpenAPIAnalyzers` warns about undocumented status codes (try commenting line 34!)\n- XML comments enrich documentation\n\n🌐 Run with HTTPS: https://localhost:7135/scalar"
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceServerControllers/Program.cs",
+      "line": 16,
+      "title": "4. OpenAPI document generation & operationIds",
+      "description": "**Microsoft.AspNetCore.OpenApi + Scalar**\n\n- Both servers generate an OpenAPI 3.1 document at `/openapi/v1.json` and show it with Scalar at `/scalar`\n- `[EndpointName(\"Talks_GetTalks\")]` on the controller actions (and `.WithName()` in the Minimal API) sets the `operationId`\n- Code generators use operationIds for method names: `NSwagTalksClient.GetTalksAsync()`, `talksGetTalks()`"
     },
     {
       "file": "api-client-generation-demo/conference.nswag",
       "line": 1,
       "title": "5. NSwag - Configuration File",
-      "description": "**Demo NSwag client generation**\n\nShow:\n- This `.nswag` file (can edit in NSwagStudio GUI)\n- Point to Swagger URL: https://localhost:7135/swagger/v1/swagger.json\n- Configure namespace, class name, output path"
+      "description": "**Demo NSwag client generation**\n\nShow:\n- This `.nswag` file (can edit in NSwagStudio GUI)\n- Point to the OpenAPI document URL: https://localhost:7135/openapi/v1.json\n- Configure namespace, class name, output path"
     },
     {
       "file": "api-client-generation-demo/Scripts/generate-nswag-client.ps1",
@@ -59,6 +65,23 @@
       "line": 31,
       "title": "11. Kiota Client Usage",
       "description": "**Demo using Kiota client**\n\n```csharp\nvar client = new KiotaConferenceClient(adapter);\nvar talks = await client.Api.Talks.GetAsync();\nvar talk = await client.Api.Talks[1].GetAsync();\n```\n\nFluent builder pattern with indexer syntax for IDs."
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceAppJs/package.json",
+      "line": 8,
+      "title": "12. JavaScript - Generate clients",
+      "description": "**Generate the JavaScript clients**\n\n```powershell\ncd api-client-generation-demo/ConferenceAppJs\nnpm install\nnpm run generate\n```\n\n- `openapi-typescript`: types only (`schema.d.ts`)\n- Hey API: `openapi-ts.config.ts` → SDK functions + types\n- Orval: `orval.config.ts` → fetch functions (can also do TanStack Query, Zod, MSW mocks)"
+    },
+    {
+      "directory": "api-client-generation-demo/ConferenceAppJs/src/clients",
+      "title": "13. JavaScript - Generated clients",
+      "description": "**Compare the generated output**\n\n- `openapi-typescript/schema.d.ts`: a single `paths` type, no runtime code\n- `hey-api/`: SDK functions named after the operationIds (`talksGetTalks`) plus a bundled fetch client\n- `orval/conference.ts`: one file with fetch functions and response types per status code"
+    },
+    {
+      "file": "api-client-generation-demo/ConferenceAppJs/src/index.ts",
+      "line": 13,
+      "title": "14. JavaScript - Client usage",
+      "description": "**Demo the JavaScript clients**\n\n```powershell\nnpm start\n```\n\n- openapi-fetch: `client.GET('/api/talks/{id}', { params: { path: { id: 1 } } })`\n- Hey API: `talksGetTalk({ path: { id: 1 } })`\n- Orval: `talksGetTalk(1)`"
     }
   ]
 }

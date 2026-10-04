@@ -1,36 +1,46 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Microsoft.OpenApi;
+using Scalar.AspNetCore;
 
-// https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-8.0
+// https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-10.0
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("https://localhost:7202");
 
-builder.Services.AddOpenApiDocument(x => x.Title = "Conference API");
-builder.Services.AddEndpointsApiExplorer();
+// The web defaults allow reading numbers from strings, which makes the OpenAPI document describe
+// every int as `"type": ["integer", "string"]`. Strict number handling keeps it a plain integer.
+builder.Services.ConfigureHttpJsonOptions(x => x.SerializerOptions.NumberHandling = JsonNumberHandling.Strict);
+
+builder.Services.AddOpenApi(x =>
+{
+    x.OpenApiVersion = OpenApiSpecVersion.OpenApi3_1;
+    x.AddDocumentTransformer((document, _, _) =>
+    {
+        document.Info.Title = "Conference API";
+        return Task.CompletedTask;
+    });
+});
 
 var app = builder.Build();
 
-app.UseOpenApi();
-app.UseSwaggerUi();
+app.MapOpenApi(); // https://localhost:7202/openapi/v1.json
+app.MapScalarApiReference(x => x.WithTitle("Conference API")); // https://localhost:7202/scalar
 
 app.UseHttpsRedirection();
 
 app.MapGet("api/talks", GetTalks)
     .WithName("Talks_GetTalks")
-    .WithOpenApi()
     .WithTags("Talks")
     .Produces<IReadOnlyCollection<Talk>>(StatusCodes.Status200OK);
 
 app.MapGet("api/talks/{id:int:min(1)}", GetTalk)
     .WithName("Talks_GetTalk")
-    .WithOpenApi()
     .WithTags("Talks")
     .Produces<Talk>(StatusCodes.Status200OK)
     .ProducesProblem(StatusCodes.Status404NotFound);
 
 app.MapPost("api/talks", CreateTalk)
     .WithName("Talks_CreateTalk")
-    .WithOpenApi()
     .WithTags("Talks")
     .Produces<Talk>(StatusCodes.Status200OK)
     .ProducesValidationProblem(StatusCodes.Status400BadRequest)

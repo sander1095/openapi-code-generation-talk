@@ -39,7 +39,7 @@ Console.WriteLine("------KIOTA------");
     var kiotaTalk = await kiotaConferenceClient.Api.Talks[1].GetAsync();
     Console.WriteLine($"Kiota API client returned a talk with title: {kiotaTalk?.Title} for Id: 1");
 
-    Console.WriteLine("Creating new talk with NSwag API Client");
+    Console.WriteLine("Creating new talk with Kiota API Client");
     var newKiotaTalk = await kiotaConferenceClient.Api.Talks.PostAsync(new ConferenceApp.Clients.Kiota.Models.CreateTalk { Title = "Kiota is awesome!" });
     Console.WriteLine($"Kiota's API client returned a new talk with ID {newKiotaTalk?.Id}");
 }
