@@ -8,15 +8,13 @@ npm install
 npm start
 ```
 
-Swagger will run on http://localhost:8080.  
-Redocly will run on http://localhost:8090.
-
-If you want to regenerate redocly, call `npx @redocly/cli build-docs ../swagger/conference_openapi.yml` in the `redocly` folder.
+Swagger UI will run on http://localhost:8080.  
+Scalar will run on http://localhost:8090.
 
 ## Demo content
 Demo the `conference_openapi.yaml` which contains a simple demo definition + some security schemes.
 
-Then demonstrate Swagger:
+Then demonstrate Swagger UI:
 
 - Example request/response
 - Multiple status code options
@@ -28,6 +26,6 @@ Then demonstrate Swagger:
 - Try out requests
 - , including (not working) microsoft login.
 
-Then demonstrate redocly with their 3 lane view.
+Then demonstrate Scalar with its 3 pane view and built-in API client.
 
 Then demonstrate Postman by importing a collection (URL or content) and it generating an entire collection for you

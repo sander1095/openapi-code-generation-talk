@@ -11,8 +11,8 @@
     },
     {
       "directory": "openapi-definition-demo",
-      "title": "2. OpenAPI Tooling (Swagger/Redocly)",
-      "description": "**Demo Swagger UI and Redocly**\n\nShow:\n- Example request/response bodies\n- Multiple status codes\n- Schema definitions\n- Try it out (will get 401 - security not configured)\n- Redocly's 3-pane view\n\nMention: Postman can import this spec to generate a collection."
+      "title": "2. OpenAPI Tooling (Swagger UI/Scalar)",
+      "description": "**Demo Swagger UI and Scalar**\n\nShow:\n- Example request/response bodies\n- Multiple status codes\n- Schema definitions\n- Try it out (will get 401 - security not configured)\n- Scalar's 3-pane view and built-in API client\n\n🌐 Swagger UI: http://localhost:8080, Scalar: http://localhost:8090\n\nMention: Postman can import this spec to generate a collection."
     },
     {
       "file": "api-client-generation-demo/ConferenceServerControllers/Controllers/TalksController.cs",

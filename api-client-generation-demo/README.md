@@ -12,8 +12,11 @@ npm install
 
 Also install the kiota extension in vscode
 
-- See the `Prebuild` folder for win64 published apps.
-- Run `start-prebuild-projects.ps1` in the `Scripts` folder to start all the projects.
+Run the scripts from the `Scripts` folder:
+- `generate-prebuild-projects.ps1` publishes the win64 apps to the `Prebuild` folder.
+- `start-prebuild-projects.ps1` starts both servers, the .NET client app and the JavaScript client app.
+- `generate-all-clients.ps1` regenerates the NSwag, Kiota and JavaScript clients (the Controllers API needs to be running).
+
 - Open the Controllers project Scalar page: https://localhost:7135/scalar
 - Open the Minimal API project Scalar page: https://localhost:7202/scalar
 - The OpenAPI 3.1 documents are available at `/openapi/v1.json` on both servers.

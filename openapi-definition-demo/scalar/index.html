@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conference API</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- https://github.com/scalar/scalar/blob/main/documentation/guides/api-references/getting-started.md -->
+  <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.72.4"></script>
+  <script>
+    // The OpenAPI definition is served by the Swagger UI server, which allows CORS requests.
+    Scalar.createApiReference('#app', {
+      url: 'http://localhost:8080/conference_openapi.yml',
+    })
+  </script>
+
+</body>
+
+</html>
