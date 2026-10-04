@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conference API</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- https://github.com/scalar/scalar/blob/main/documentation/guides/api-references/getting-started.md -->
+  <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.72.4"></script>
+  <!-- Defines window.conferenceOpenApi, so this page also works when opened straight from disk -->
+  <script src="../conference_openapi.js"></script>
+  <script>
+    Scalar.createApiReference('#app', {
+      content: window.conferenceOpenApi,
+    })
+  </script>
+
+</body>
+
+</html>

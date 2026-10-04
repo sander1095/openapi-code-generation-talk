@@ -15,7 +15,7 @@
       "includeAdditionalData": true,
       "excludeBackwardCompatible": false,
       "disabledValidationRules": [],
-      "descriptionLocation": "https://localhost:7135/swagger/v1/swagger.json",
+      "descriptionLocation": "https://localhost:7135/openapi/v1.json",
       "includePatterns": [],
       "excludePatterns": [],
       "outputPath": "./api-client-generation-demo/ConferenceApp/Clients/Kiota"

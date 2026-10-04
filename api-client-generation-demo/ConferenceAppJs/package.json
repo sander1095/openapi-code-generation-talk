@@ -1,0 +1,27 @@
+{
+  "name": "conference-app-js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm run export-dev-cert",
+    "export-dev-cert": "node -e \"require('fs').mkdirSync('.certs', { recursive: true })\" && dotnet dev-certs https --export-path .certs/aspnet-dev.pem --format PEM",
+    "generate": "npm run generate:openapi-typescript && npm run generate:hey-api && npm run generate:orval",
+    "generate:openapi-typescript": "cross-env NODE_EXTRA_CA_CERTS=.certs/aspnet-dev.pem openapi-typescript https://localhost:7135/openapi/v1.json -o src/clients/openapi-typescript/schema.d.ts",
+    "generate:hey-api": "cross-env NODE_EXTRA_CA_CERTS=.certs/aspnet-dev.pem openapi-ts",
+    "generate:orval": "cross-env NODE_EXTRA_CA_CERTS=.certs/aspnet-dev.pem orval",
+    "start": "cross-env NODE_EXTRA_CA_CERTS=.certs/aspnet-dev.pem tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.17.0"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.99.0",
+    "@types/node": "^24.19.1",
+    "cross-env": "^10.1.0",
+    "openapi-typescript": "^7.13.0",
+    "orval": "^8.39.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

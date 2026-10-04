@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ConferenceServerControllers.Models
+namespace ConferenceServerControllers.Models;
+
+public class CreateTalk
 {
-    public class CreateTalk
-    {
-        [StringLength(100)]
-        public required string Title { get; set; }
-    }
+    [StringLength(100)]
+    public required string Title { get; set; }
 }

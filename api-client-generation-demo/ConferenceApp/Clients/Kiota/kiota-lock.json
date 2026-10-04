@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "95B6ED74903FC3F937B55F658ED71DBA5C3010F11BF0F7FCE9280598170DA47C8C1A6C7D6077EED041BD68809D23D56E7F314A2A8956921E54D1AFD94D3FE427",
-  "descriptionLocation": "https://localhost:7135/swagger/v1/swagger.json",
+  "descriptionHash": "715F914C060C288FCF9CBF99CC521C6BA2162215A733EBB6035447BBCAD32D69F85BD94E73B85B2EBE1950C0ADE5E5B58EB1DD772CF1F29689AAC9AEA16C5C91",
+  "descriptionLocation": "https://localhost:7135/openapi/v1.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.20.0",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "KiotaConferenceClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "ConferenceApp.Clients.Kiota",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }
