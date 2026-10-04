@@ -9,18 +9,21 @@
   <link rel="stylesheet" type="text/css" href="swagger.css">
 
   <title>Conference API</title>
+</head>
 
 <body>
 
-  <div id="your-app-docs" />
+  <div id="your-app-docs"></div>
 
   <script src="swagger.js"></script>
+  <!-- Defines window.conferenceOpenApi, so this page also works when opened straight from disk -->
+  <script src="../conference_openapi.js"></script>
   <script>
 
     window.onload = function () {
 
       const ui = SwaggerUIBundle({
-        url: "conference_openapi.yml",
+        spec: window.conferenceOpenApi,
         dom_id: "#your-app-docs",
         deepLinking: true,
       })

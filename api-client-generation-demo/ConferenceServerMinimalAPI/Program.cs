@@ -25,6 +25,7 @@ var app = builder.Build();
 
 app.MapOpenApi(); // https://localhost:7202/openapi/v1.json
 app.MapScalarApiReference(x => x.WithTitle("Conference API")); // https://localhost:7202/scalar
+app.UseSwaggerUI(x => x.SwaggerEndpoint("/openapi/v1.json", "Conference API")); // https://localhost:7202/swagger
 
 app.UseHttpsRedirection();
 

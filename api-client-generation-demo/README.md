@@ -17,8 +17,8 @@ Run the scripts from the `Scripts` folder:
 - `start-prebuild-projects.ps1` starts both servers, the .NET client app and the JavaScript client app.
 - `generate-all-clients.ps1` regenerates the NSwag, Kiota and JavaScript clients (the Controllers API needs to be running).
 
-- Open the Controllers project Scalar page: https://localhost:7135/scalar
-- Open the Minimal API project Scalar page: https://localhost:7202/scalar
+- Open the Controllers project Scalar page: https://localhost:7135/scalar or Swagger UI page: https://localhost:7135/swagger
+- Open the Minimal API project Scalar page: https://localhost:7202/scalar or Swagger UI page: https://localhost:7202/swagger
 - The OpenAPI 3.1 documents are available at `/openapi/v1.json` on both servers.
 
 ## Demo content
@@ -28,7 +28,7 @@ Run the scripts from the `Scripts` folder:
 - Demo the Servers (both Minimal API and controllers, run Controllers with HTTPs!)
   - Talk about ProducesResponseType, OpenAPIAnalyzers, Visual Studio API client generation
   - Talk about Minimal API extension methods, TypedResults
-  - Talk about Microsoft.AspNetCore.OpenApi, OpenAPI 3.1 and Scalar
+  - Talk about Microsoft.AspNetCore.OpenApi, OpenAPI 3.1, and showing the document with Scalar and Swagger UI (Swashbuckle.AspNetCore.SwaggerUI)
   - Talk about operationIds: `[EndpointName]` (controllers) and `.WithName()` (Minimal API) set them (`Talks_GetTalks`). Code generators turn them into method names.
 
 ### NSwag

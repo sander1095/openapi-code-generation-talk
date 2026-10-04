@@ -8,11 +8,14 @@ npm install
 npm start
 ```
 
-Swagger UI will run on http://localhost:8080.  
-Scalar will run on http://localhost:8090.
+Swagger UI will run on http://localhost:8080/swagger/.  
+Scalar will run on http://localhost:8080/scalar/.  
+The Prism mock API will run on http://localhost:4010.
+
+You can also open `swagger/index.html` and `scalar/index.html` straight from disk. Browsers block pages on `file://` from fetching other files, so both pages load the definition from `conference_openapi.js`, which `npm start` generates from `conference_openapi.yml`. Run `npm run build-spec` after changing the YAML file without restarting.
 
 ## Demo content
-Demo the `conference_openapi.yaml` which contains a simple demo definition + some security schemes.
+Demo the `conference_openapi.yml` which contains a simple demo definition + some security schemes.
 
 Then demonstrate Swagger UI:
 

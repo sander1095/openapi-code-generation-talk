@@ -4,27 +4,27 @@
   "description": "Demo flow: OpenAPI basics → Server APIs → NSwag client generation → Kiota client generation → Client usage → JavaScript clients",
   "steps": [
     {
-      "file": "conference_openapi.yml",
-      "line": 10,
+      "file": "openapi-definition-demo/conference_openapi.yml",
+      "line": 13,
       "title": "1. OpenAPI Definition",
       "description": "**Demo the OpenAPI spec** - This defines our Conference API with:\n- `/talks` endpoints (GET all, POST new, GET by id)\n- Request/response schemas\n- Status codes\n\nThis serves as the contract for both servers and generated clients."
     },
     {
       "directory": "openapi-definition-demo",
       "title": "2. OpenAPI Tooling (Swagger UI/Scalar)",
-      "description": "**Demo Swagger UI and Scalar**\n\nShow:\n- Example request/response bodies\n- Multiple status codes\n- Schema definitions\n- Try it out (will get 401 - security not configured)\n- Scalar's 3-pane view and built-in API client\n\n🌐 Swagger UI: http://localhost:8080, Scalar: http://localhost:8090\n\nMention: Postman can import this spec to generate a collection."
+      "description": "**Demo Swagger UI and Scalar**\n\nShow:\n- Example request/response bodies\n- Multiple status codes\n- Schema definitions\n- Try it out (will get 401 - security not configured)\n- Scalar's 3-pane view and built-in API client\n\n🌐 Swagger UI: http://localhost:8080/swagger/, Scalar: http://localhost:8080/scalar/ (or open their `index.html` files straight from disk)\n\nMention: Postman can import this spec to generate a collection."
     },
     {
       "file": "api-client-generation-demo/ConferenceServerControllers/Controllers/TalksController.cs",
       "line": 23,
       "title": "3. Controllers API - ProducesResponseType",
-      "description": "**Demo the Controllers-based API**\n\nKey points:\n- `[ProducesResponseType]` documents the OpenAPI spec\n- `IncludeOpenAPIAnalyzers` warns about undocumented status codes (try commenting line 34!)\n- XML comments enrich documentation\n\n🌐 Run with HTTPS: https://localhost:7135/scalar"
+      "description": "**Demo the Controllers-based API**\n\nKey points:\n- `[ProducesResponseType]` documents the OpenAPI spec\n- `IncludeOpenAPIAnalyzers` warns about undocumented status codes (try commenting line 34!)\n- XML comments enrich documentation\n\n🌐 Run with HTTPS: https://localhost:7135/scalar or https://localhost:7135/swagger"
     },
     {
       "file": "api-client-generation-demo/ConferenceServerControllers/Program.cs",
-      "line": 16,
-      "title": "4. OpenAPI document generation & operationIds",
-      "description": "**Microsoft.AspNetCore.OpenApi + Scalar**\n\n- Both servers generate an OpenAPI 3.1 document at `/openapi/v1.json` and show it with Scalar at `/scalar`\n- `[EndpointName(\"Talks_GetTalks\")]` on the controller actions (and `.WithName()` in the Minimal API) sets the `operationId`\n- Code generators use operationIds for method names: `NSwagTalksClient.GetTalksAsync()`, `talksGetTalks()`"
+      "line": 15,
+      "title": "4. OpenAPI document generation, Scalar & Swagger UI",
+      "description": "**Microsoft.AspNetCore.OpenApi + Scalar + Swagger UI**\n\n- Both servers generate an OpenAPI 3.1 document at `/openapi/v1.json` and show it with Scalar at `/scalar` and Swagger UI at `/swagger`\n- `[EndpointName(\"Talks_GetTalks\")]` on the controller actions (and `.WithName()` in the Minimal API) sets the `operationId`\n- Code generators use operationIds for method names: `NSwagTalksClient.GetTalksAsync()`, `talksGetTalks()`"
     },
     {
       "file": "api-client-generation-demo/conference.nswag",

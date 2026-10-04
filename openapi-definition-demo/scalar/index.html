@@ -14,10 +14,11 @@
 
   <!-- https://github.com/scalar/scalar/blob/main/documentation/guides/api-references/getting-started.md -->
   <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.72.4"></script>
+  <!-- Defines window.conferenceOpenApi, so this page also works when opened straight from disk -->
+  <script src="../conference_openapi.js"></script>
   <script>
-    // The OpenAPI definition is served by the Swagger UI server, which allows CORS requests.
     Scalar.createApiReference('#app', {
-      url: 'http://localhost:8080/conference_openapi.yml',
+      content: window.conferenceOpenApi,
     })
   </script>
 

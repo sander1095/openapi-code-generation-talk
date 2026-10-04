@@ -1,13 +1,17 @@
 {
   "scripts": {
-    "prism": "prism mock swagger/conference_openapi.yml",
-    "server-swagger": "http-server swagger -p 8080 --cors",
-    "server-scalar": "http-server scalar -p 8090",
-    "start": "concurrently \"npm run prism\" \"npm run server-swagger\" \"npm run server-scalar\""
+    "build-spec": "node scripts/build-spec.mjs",
+    "prism": "prism mock conference_openapi.yml",
+    "server": "http-server . -p 8080 -c-1",
+    "prestart": "npm run build-spec",
+    "start": "concurrently \"npm run prism\" \"npm run server\""
   },
   "dependencies": {
     "@stoplight/prism-cli": "^5.5.2",
     "concurrently": "^8.2.2",
     "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.1"
   }
 }
