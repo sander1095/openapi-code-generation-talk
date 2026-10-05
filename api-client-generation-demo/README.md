@@ -12,10 +12,10 @@ npm install
 
 Also install the kiota extension in vscode
 
-Run the scripts from the `Scripts` folder:
-- `generate-prebuild-projects.ps1` publishes the win64 apps to the `Prebuild` folder.
-- `start-prebuild-projects.ps1` starts both servers, the .NET client app and the JavaScript client app.
-- `generate-all-clients.ps1` regenerates the NSwag, Kiota and JavaScript clients (the Controllers API needs to be running).
+Run the scripts from the `Scripts` folder. Every script comes in a `.ps1` (Windows/PowerShell) and a `.sh` (macOS/Linux) flavour:
+- `generate-prebuild-projects` publishes the apps to the `Prebuild` folder. The PowerShell version targets `win-x64`; the shell version detects the host runtime identifier (pass one as an argument to override, e.g. `./generate-prebuild-projects.sh linux-x64`).
+- `start-prebuild-projects` starts both servers, the .NET client app and the JavaScript client app, each in its own terminal window.
+- `generate-all-clients` regenerates the NSwag, Kiota and JavaScript clients (the Controllers API needs to be running).
 
 - Open the Controllers project Scalar page: https://localhost:7135/scalar or Swagger UI page: https://localhost:7135/swagger
 - Open the Minimal API project Scalar page: https://localhost:7202/scalar or Swagger UI page: https://localhost:7202/swagger
