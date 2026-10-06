@@ -30,19 +30,19 @@ export interface Talk {
   title: string;
 }
 
-export type talksGetTalksResponse200 = {
+export type GetTalksResponse200 = {
   data: Talk[]
   status: 200
 }
 
-export type talksGetTalksResponseSuccess = (talksGetTalksResponse200) & {
+export type GetTalksResponseSuccess = (GetTalksResponse200) & {
   headers: Headers;
 };
 ;
 
-export type talksGetTalksResponse = (talksGetTalksResponseSuccess)
+export type GetTalksResponse = (GetTalksResponseSuccess)
 
-export const getTalksGetTalksUrl = () => {
+export const getGetTalksUrl = () => {
 
 
 
@@ -50,9 +50,9 @@ export const getTalksGetTalksUrl = () => {
   return `https://localhost:7135/api/talks`
 }
 
-export const talksGetTalks = async ( options?: RequestInit): Promise<talksGetTalksResponse> => {
+export const getTalks = async ( options?: RequestInit): Promise<GetTalksResponse> => {
 
-  const res = await fetch(getTalksGetTalksUrl(),
+  const res = await fetch(getGetTalksUrl(),
   {
     ...options,
     method: 'GET'
@@ -64,37 +64,37 @@ export const talksGetTalks = async ( options?: RequestInit): Promise<talksGetTal
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
 
-  const data: talksGetTalksResponse['data'] = body ? JSON.parse(body) : {}
-  return { data, status: res.status, headers: res.headers } as talksGetTalksResponse
+  const data: GetTalksResponse['data'] = body ? JSON.parse(body) : {}
+  return { data, status: res.status, headers: res.headers } as GetTalksResponse
 }
 
 
 
-export type talksCreateTalkResponse200 = {
+export type CreateTalkResponse200 = {
   data: Talk
   status: 200
 }
 
-export type talksCreateTalkResponse400 = {
+export type CreateTalkResponse400 = {
   data: ProblemDetails
   status: 400
 }
 
-export type talksCreateTalkResponse409 = {
+export type CreateTalkResponse409 = {
   data: ProblemDetails
   status: 409
 }
 
-export type talksCreateTalkResponseSuccess = (talksCreateTalkResponse200) & {
+export type CreateTalkResponseSuccess = (CreateTalkResponse200) & {
   headers: Headers;
 };
-export type talksCreateTalkResponseError = (talksCreateTalkResponse400 | talksCreateTalkResponse409) & {
+export type CreateTalkResponseError = (CreateTalkResponse400 | CreateTalkResponse409) & {
   headers: Headers;
 };
 
-export type talksCreateTalkResponse = (talksCreateTalkResponseSuccess | talksCreateTalkResponseError)
+export type CreateTalkResponse = (CreateTalkResponseSuccess | CreateTalkResponseError)
 
-export const getTalksCreateTalkUrl = () => {
+export const getCreateTalkUrl = () => {
 
 
 
@@ -105,7 +105,7 @@ export const getTalksCreateTalkUrl = () => {
 /**
  * @summary Creates a talk
  */
-export const talksCreateTalk = async (createTalk: CreateTalk, options?: RequestInit): Promise<talksCreateTalkResponse> => {
+export const createTalk = async (createTalkBody: CreateTalk, options?: RequestInit): Promise<CreateTalkResponse> => {
 
     const getHeaders = (h?: NonNullable<RequestInit['headers']>): Record<string, string | readonly string[]> => {
     if (!h) return {};
@@ -121,44 +121,44 @@ export const talksCreateTalk = async (createTalk: CreateTalk, options?: RequestI
     }
     return headers;
   };
-const res = await fetch(getTalksCreateTalkUrl(),
+const res = await fetch(getCreateTalkUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...getHeaders(options?.headers) },
-    body: JSON.stringify(createTalk)
+    body: JSON.stringify(createTalkBody)
   }
 )
 
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
 
-  const data: talksCreateTalkResponse['data'] = body ? JSON.parse(body) : {}
-  return { data, status: res.status, headers: res.headers } as talksCreateTalkResponse
+  const data: CreateTalkResponse['data'] = body ? JSON.parse(body) : {}
+  return { data, status: res.status, headers: res.headers } as CreateTalkResponse
 }
 
 
 
-export type talksGetTalkResponse200 = {
+export type GetTalkResponse200 = {
   data: Talk
   status: 200
 }
 
-export type talksGetTalkResponse404 = {
+export type GetTalkResponse404 = {
   data: ProblemDetails
   status: 404
 }
 
-export type talksGetTalkResponseSuccess = (talksGetTalkResponse200) & {
+export type GetTalkResponseSuccess = (GetTalkResponse200) & {
   headers: Headers;
 };
-export type talksGetTalkResponseError = (talksGetTalkResponse404) & {
+export type GetTalkResponseError = (GetTalkResponse404) & {
   headers: Headers;
 };
 
-export type talksGetTalkResponse = (talksGetTalkResponseSuccess | talksGetTalkResponseError)
+export type GetTalkResponse = (GetTalkResponseSuccess | GetTalkResponseError)
 
-export const getTalksGetTalkUrl = (id: number,) => {
+export const getGetTalkUrl = (id: number,) => {
 
 
 
@@ -166,9 +166,9 @@ export const getTalksGetTalkUrl = (id: number,) => {
   return `https://localhost:7135/api/talks/${id}`
 }
 
-export const talksGetTalk = async (id: number, options?: RequestInit): Promise<talksGetTalkResponse> => {
+export const getTalk = async (id: number, options?: RequestInit): Promise<GetTalkResponse> => {
 
-  const res = await fetch(getTalksGetTalkUrl(id),
+  const res = await fetch(getGetTalkUrl(id),
   {
     ...options,
     method: 'GET'
@@ -180,6 +180,6 @@ export const talksGetTalk = async (id: number, options?: RequestInit): Promise<t
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
 
-  const data: talksGetTalkResponse['data'] = body ? JSON.parse(body) : {}
-  return { data, status: res.status, headers: res.headers } as talksGetTalkResponse
+  const data: GetTalkResponse['data'] = body ? JSON.parse(body) : {}
+  return { data, status: res.status, headers: res.headers } as GetTalkResponse
 }

@@ -18,12 +18,12 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
     meta?: keyof ClientMeta extends never ? Record<string, unknown> : ClientMeta;
 };
 
-export const talksGetTalks = <ThrowOnError extends boolean = false>(options?: Options<TalksGetTalksData, ThrowOnError>): RequestResult<TalksGetTalksResponses, unknown, ThrowOnError> => (options?.client ?? client).get<TalksGetTalksResponses, unknown, ThrowOnError>({ url: '/api/talks', ...options });
+export const getTalks = <ThrowOnError extends boolean = false>(options?: Options<TalksGetTalksData, ThrowOnError>): RequestResult<TalksGetTalksResponses, unknown, ThrowOnError> => (options?.client ?? client).get<TalksGetTalksResponses, unknown, ThrowOnError>({ url: '/api/talks', ...options });
 
 /**
  * Creates a talk
  */
-export const talksCreateTalk = <ThrowOnError extends boolean = false>(options: Options<TalksCreateTalkData, ThrowOnError>): RequestResult<TalksCreateTalkResponses, TalksCreateTalkErrors, ThrowOnError> => (options.client ?? client).post<TalksCreateTalkResponses, TalksCreateTalkErrors, ThrowOnError>({
+export const createTalk = <ThrowOnError extends boolean = false>(options: Options<TalksCreateTalkData, ThrowOnError>): RequestResult<TalksCreateTalkResponses, TalksCreateTalkErrors, ThrowOnError> => (options.client ?? client).post<TalksCreateTalkResponses, TalksCreateTalkErrors, ThrowOnError>({
     url: '/api/talks',
     ...options,
     headers: {
@@ -32,4 +32,4 @@ export const talksCreateTalk = <ThrowOnError extends boolean = false>(options: O
     }
 });
 
-export const talksGetTalk = <ThrowOnError extends boolean = false>(options: Options<TalksGetTalkData, ThrowOnError>): RequestResult<TalksGetTalkResponses, TalksGetTalkErrors, ThrowOnError> => (options.client ?? client).get<TalksGetTalkResponses, TalksGetTalkErrors, ThrowOnError>({ url: '/api/talks/{id}', ...options });
+export const getTalk = <ThrowOnError extends boolean = false>(options: Options<TalksGetTalkData, ThrowOnError>): RequestResult<TalksGetTalkResponses, TalksGetTalkErrors, ThrowOnError> => (options.client ?? client).get<TalksGetTalkResponses, TalksGetTalkErrors, ThrowOnError>({ url: '/api/talks/{id}', ...options });

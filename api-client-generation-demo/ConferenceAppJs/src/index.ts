@@ -33,35 +33,38 @@ console.log('------OPENAPI-TYPESCRIPT + OPENAPI-FETCH------');
 console.log('----------------------------------------------');
 console.log('------HEY API------');
 {
-  // Hey API generates an SDK function per operationId. The client's baseUrl comes from the
-  // `servers` in the OpenAPI document, and can be changed with `client.setConfig()`.
-  const { data: talks } = await heyApi.talksGetTalks();
+  // Hey API generates an SDK function per operationId. NSwag's `Talks_GetTalks` would become
+  // `talksGetTalks()`, so openapi-ts.config.ts uses `operations.methodName` to drop the prefix.
+  // The client's baseUrl comes from the `servers` in the OpenAPI document, and can be changed
+  // with `client.setConfig()`.
+  const { data: talks } = await heyApi.getTalks();
   console.log(`Hey API returned ${talks?.length} talks`);
 
-  const { data: talk } = await heyApi.talksGetTalk({ path: { id: 1 } });
+  const { data: talk } = await heyApi.getTalk({ path: { id: 1 } });
   console.log(`Hey API returned a talk with title: ${talk?.title} for Id: 1`);
 
   console.log('Creating new talk with Hey API');
   // `throwOnError` turns error responses into exceptions, which narrows `data` to `Talk`.
-  const { data: newTalk } = await heyApi.talksCreateTalk({ body: { title: 'Hey API is awesome!' }, throwOnError: true });
+  const { data: newTalk } = await heyApi.createTalk({ body: { title: 'Hey API is awesome!' }, throwOnError: true });
   console.log(`Hey API returned a new talk with ID ${newTalk.id}`);
 }
 console.log('-------------------');
 console.log('------ORVAL------');
 {
   // Orval generates a fetch function per operationId that returns `{ data, status, headers }`.
+  // orval.config.ts uses `override.operationName` to drop the `Talks_` prefix NSwag puts in the id.
   // It can also generate TanStack Query / SWR hooks, Zod schemas and MSW mocks from the same document.
-  const talks = await orval.talksGetTalks();
+  const talks = await orval.getTalks();
   console.log(`Orval returned ${talks.data.length} talks`);
 
-  const talk = await orval.talksGetTalk(1);
+  const talk = await orval.getTalk(1);
   if (talk.status === 200) {
     // Checking the status narrows `data` from `Talk | ProblemDetails` to `Talk`.
     console.log(`Orval returned a talk with title: ${talk.data.title} for Id: 1`);
   }
 
   console.log('Creating new talk with Orval');
-  const newTalk = await orval.talksCreateTalk({ title: 'Orval is awesome!' });
+  const newTalk = await orval.createTalk({ title: 'Orval is awesome!' });
   if (newTalk.status === 200) {
     console.log(`Orval returned a new talk with ID ${newTalk.data.id}`);
   }
