@@ -1,6 +1,6 @@
 // Generated from conference_openapi.yml by `npm run build-spec`. Do not edit.
 window.conferenceOpenApi = {
-  "openapi": "3.0.0",
+  "openapi": "3.1.1",
   "info": {
     "title": "Conference API",
     "description": "API for managing conference talks",
